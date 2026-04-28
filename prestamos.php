@@ -137,7 +137,7 @@ $misprestamos = $misprestamos->fetchAll();
           <option value="<?= $l['id'] ?>"><?= htmlspecialchars($l['titulo']) ?> — <?= htmlspecialchars($l['autor']) ?></option>
         <?php endforeach; ?>
       </select>
-      <button class="bib-btn" type="submit">📖 Pedir préstamo</button>
+      <button class="bib-btn" type="submit">Pedir préstamo</button>
     </form>
     <?php endif; ?>
   </div>
