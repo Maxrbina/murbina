@@ -1,53 +1,230 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Biblioteca — Registro</title>
     <link href="./wwwroot/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./wwwroot/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="./wwwroot/css/bootstrap-icons.min.css">
-    <script src="./wwwroot/js/jquery-4.0.0.min.js"></script>
-    <script src="./wwwroot/js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #f5ede0;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 40px,
+          rgba(180,130,70,0.04) 40px,
+          rgba(180,130,70,0.04) 41px
+        );
+        font-family: 'Lato', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .bib-card {
+        background: #fffdf8;
+        border: 1px solid #c9a96e;
+        border-radius: 14px;
+        padding: 2.5rem 2.5rem 2rem;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 4px 32px rgba(122,79,30,0.10);
+      }
+
+      .bib-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .bib-logo-icon {
+        width: 40px;
+        height: 40px;
+        background: #7a4f1e;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      .bib-logo-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #7a4f1e;
+        letter-spacing: 0.5px;
+      }
+
+      .bib-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #c9a96e, transparent);
+        margin-bottom: 1.5rem;
+      }
+
+      .bib-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        font-weight: 600;
+        color: #4a2f0e;
+        margin: 0 0 4px;
+        text-align: center;
+      }
+
+      .bib-subtitle {
+        font-size: 13px;
+        color: #9e7a50;
+        text-align: center;
+        margin: 0 0 1.5rem;
+        font-weight: 300;
+        letter-spacing: 0.3px;
+      }
+
+      .bib-ornament {
+        text-align: center;
+        color: #c9a96e;
+        font-size: 18px;
+        letter-spacing: 6px;
+        margin-bottom: 1.4rem;
+      }
+
+      .bib-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #7a4f1e;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .bib-input {
+        width: 100%;
+        border: 1px solid #d4b483;
+        border-radius: 7px;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-family: 'Lato', sans-serif;
+        background: #fdf8f0;
+        color: #4a2f0e;
+        margin-bottom: 16px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+
+      .bib-input:focus {
+        border-color: #7a4f1e;
+        background: #fffdf8;
+      }
+
+      .bib-input::placeholder {
+        color: #c9a96e;
+        font-weight: 300;
+      }
+
+      .bib-btn {
+        width: 100%;
+        background: #7a4f1e;
+        color: #f5d98a;
+        border: none;
+        border-radius: 7px;
+        padding: 11px;
+        font-size: 13px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 4px;
+        transition: background 0.2s;
+      }
+
+      .bib-btn:hover {
+        background: #5c3a14;
+      }
+
+      .bib-footer {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 13px;
+        color: #9e7a50;
+      }
+
+      .bib-footer a {
+        color: #7a4f1e;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .bib-footer a:hover {
+        text-decoration: underline;
+      }
+
+      .bib-error {
+        background: #fdf0e8;
+        border: 1px solid #e8a070;
+        border-radius: 7px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #7a3010;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .bib-success {
+        background: #f0f7ee;
+        border: 1px solid #90c07a;
+        border-radius: 7px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #2e5e1a;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <main id="main">
-      <div class="container-lg d-flex flex-column">
-        <div class="row align-items-center justify-content-center no-gutters">
-          <div class="col-md-7 col-lg-5">
-            <div class="shadow mt-5 p-5 bg-white rounded-3 border">
-              <div class="w-100 text-center">
-                <h1 class="display-6"> Registrate</h1>
-              </div>
-              <div class="col-12">
 
-                <form method="POST" action="usuarios.php">
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre completo</label>
-                    <input class="form-control" id="nombre" name="nombre" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input class="form-control" type="email" id="email" name="email" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="pwd" class="form-label">Contraseña</label>
-                    <input class="form-control" type="password" id="pwd" name="pwd" required>
-                  </div>
-                  <div class="d-flex justify-content-between py-3">
-                    <div>
-                      <span class="small text-muted">¿Ya tienes cuenta?</span>
-                      <a class="small" href="index.html"> Iniciar sesión</a>
-                    </div>
-                    <button class="btn btn-outline-primary" type="submit"> Registrarse</button>
-                  </div>
-                </form>
+    <div class="bib-card">
 
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="bib-logo">
+        <div class="bib-logo-icon">📚</div>
+        <span class="bib-logo-text">Biblioteca</span>
       </div>
-    </main>
+
+      <div class="bib-divider"></div>
+
+      <h1 class="bib-title">Crear cuenta</h1>
+      <p class="bib-subtitle">Únete a nuestra comunidad lectora</p>
+      <div class="bib-ornament">· · ·</div>
+
+      <form method="POST" action="usuarios.php">
+        <label class="bib-label" for="nombre">Nombre completo</label>
+        <input class="bib-input" type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
+        <label class="bib-label" for="email">Correo electrónico</label>
+        <input class="bib-input" type="email" id="email" name="email" placeholder="tu@correo.com" required>
+
+        <label class="bib-label" for="pwd">Contraseña</label>
+        <input class="bib-input" type="password" id="pwd" name="pwd" placeholder="••••••••" required>
+
+        <button class="bib-btn" type="submit">Registrarse</button>
+      </form>
+
+      <p class="bib-footer">
+        ¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a>
+      </p>
+
+    </div>
+
   </body>
 </html>
