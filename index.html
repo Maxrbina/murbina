@@ -15,11 +15,8 @@
         min-height: 100vh;
         background-color: #f5ede0;
         background-image: repeating-linear-gradient(
-          45deg,
-          transparent,
-          transparent 40px,
-          rgba(180,130,70,0.04) 40px,
-          rgba(180,130,70,0.04) 41px
+          45deg, transparent, transparent 40px,
+          rgba(180,130,70,0.04) 40px, rgba(180,130,70,0.04) 41px
         );
         font-family: 'Lato', sans-serif;
         display: flex;
@@ -53,7 +50,6 @@
         text-align: center;
         margin: 0 0 1.5rem;
         font-weight: 300;
-        letter-spacing: 0.3px;
       }
 
       .bib-ornament {
@@ -93,9 +89,28 @@
         background: #fffdf8;
       }
 
-      .bib-input::placeholder {
-        color: #c9a96e;
-        font-weight: 300;
+      .bib-input::placeholder { color: #c9a96e; font-weight: 300; }
+
+      .bib-remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        margin-top: -8px;
+      }
+
+      .bib-remember input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #7a4f1e;
+        cursor: pointer;
+      }
+
+      .bib-remember label {
+        font-size: 13px;
+        color: #9e7a50;
+        cursor: pointer;
+        user-select: none;
       }
 
       .bib-btn {
@@ -111,13 +126,10 @@
         letter-spacing: 2px;
         text-transform: uppercase;
         cursor: pointer;
-        margin-top: 4px;
         transition: background 0.2s;
       }
 
-      .bib-btn:hover {
-        background: #5c3a14;
-      }
+      .bib-btn:hover { background: #5c3a14; }
 
       .bib-footer {
         text-align: center;
@@ -132,8 +144,17 @@
         text-decoration: none;
       }
 
-      .bib-footer a:hover {
-        text-decoration: underline;
+      .bib-footer a:hover { text-decoration: underline; }
+
+      .bib-error {
+        background: #fdf0e8;
+        border: 1px solid #e8a070;
+        border-radius: 7px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #7a3010;
+        margin-bottom: 16px;
+        text-align: center;
       }
     </style>
   </head>
@@ -141,15 +162,25 @@
 
     <div class="bib-card">
       <h1 class="bib-title">Iniciar sesión</h1>
-      <p class="bib-subtitle">Accede a tu cuenta</p>
+      <p class="bib-subtitle">Accede a tu cuenta de lector</p>
       <div class="bib-ornament">· · ·</div>
 
       <form method="POST" action="login.php">
+
         <label class="bib-label" for="email">Correo electrónico</label>
-        <input class="bib-input" type="email" id="email" name="email" placeholder="tu@correo.com" required>
+        <input class="bib-input" type="email" id="email" name="email"
+          placeholder="tu@correo.com"
+          value="<?= isset($_COOKIE['recordar_email']) ? htmlspecialchars($_COOKIE['recordar_email']) : '' ?>"
+          required>
 
         <label class="bib-label" for="pwd">Contraseña</label>
         <input class="bib-input" type="password" id="pwd" name="pwd" placeholder="••••••••" required>
+
+        <div class="bib-remember">
+          <input type="checkbox" id="recordar" name="recordar" value="1"
+            <?= isset($_COOKIE['recordar_email']) ? 'checked' : '' ?>>
+          <label for="recordar">Recórdame</label>
+        </div>
 
         <button class="bib-btn" type="submit">Iniciar sesión</button>
       </form>
