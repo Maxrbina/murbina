@@ -36,7 +36,7 @@ require_once 'db.php'; // Traemos el código del otro archivo
         ]);
 
         if ($resultado) {
-            header("Location: index.html");
+            header("Location: index.php");
             
 	   echo "El usuario se ha almacenado correctamente!  <a href='index.html'>Continuar</a>";
 	   
@@ -47,7 +47,7 @@ require_once 'db.php'; // Traemos el código del otro archivo
 
         if ($e->errorInfo[1] == 1062) {
             
-            echo "El email ya existe, favor de intendarlo con otro correo. <a href='index.html'>Continuar</a>";
+            echo "El email ya existe, favor de intendarlo con otro correo. <a href='index.php'>Continuar</a>";
         }else {
         // Handle other database errors
         echo "Database Error: " . $e->getMessage();
