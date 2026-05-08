@@ -38,7 +38,7 @@ require_once 'db.php'; // Traemos el código del otro archivo
         if ($resultado) {
             header("Location: index.php");
             
-	   echo "El usuario se ha almacenado correctamente!  <a href='index.html'>Continuar</a>";
+	   echo "El usuario se ha almacenado correctamente!  <a href='index.php'>Continuar</a>";
 	   
         }
 

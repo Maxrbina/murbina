@@ -38,11 +38,11 @@ try {
             exit();
 
         } else {
-            echo "La contraseña está mal... <a href='index.html'>Volver</a>";
+            echo "La contraseña está mal... <a href='index.php'>Volver</a>";
         }
 
     } else {
-        echo "No se encontraron datos. <a href='index.html'>Volver</a>";
+        echo "No se encontraron datos. <a href='index.php'>Volver</a>";
     }
 
 } catch (PDOException $e) {
