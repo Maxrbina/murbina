@@ -23,6 +23,9 @@ try {
             session_start();
             $_SESSION['username'] = $usuario['email'];
             $_SESSION['id']       = $usuario['id'];
+                        $cookie_name = "id";
+            $cookie_value = $usuario['id'];
+            $expiry = time() + (86400 * 30); // Valid for 30 days
 
             // --- COOKIE ---
             if ($recordar) {
