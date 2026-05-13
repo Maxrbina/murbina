@@ -42,7 +42,7 @@ try {
             exit();
 
         } else {
-            echo "La contraseña está mal... <a href='index.php'>Volver</a>";
+            echo " La contraseña está mal... <a href='index.php'>Volver</a>";
         }
 
     } else {

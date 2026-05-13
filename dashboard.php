@@ -174,7 +174,7 @@ if (!isset($_SESSION['id'])) {
 <body>
 
 <header>
-  <span class="header-logo">Biblioteca</span>
+  <span class="header-logo"> Biblioteca</span>
   <nav class="header-nav">
     <a href="dashboard.php"><i class="bi bi-house"></i> Inicio</a>
     <a href="logout.php"><i class="bi bi-box-arrow-right"></i> Salir</a>

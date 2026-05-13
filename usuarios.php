@@ -43,7 +43,7 @@ require_once 'db.php'; // Traemos el código del otro archivo
         }
 
     } catch (PDOException $e) {
-        // Manejo de errores (ej. si el email ya existe y es único)
+        // Manejo de errores (ej. si el email ya existe  y es único)
 
         if ($e->errorInfo[1] == 1062) {
             
